@@ -20,8 +20,11 @@ export const getMoviesServices = async (
 
   if (!perPage || perPage % 1 !== 0 || perPage > 5 || perPage <= 0) perPage = 5;
   if (!page || page % 1 !== 0 || page <= 0) page = 1;
-  if (!sort || !sortOptions.includes(sort)) sort = 'id';
   if (!order || !orderOptions.includes(order)) order = 'asc';
+  if (!sort || !sortOptions.includes(sort)) {
+    sort = 'id';
+    order = 'asc';
+  }
 
   if (!sort && !order) {
     data = await repository.find({
