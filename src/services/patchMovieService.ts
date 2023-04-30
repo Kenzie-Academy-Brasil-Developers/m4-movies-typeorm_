@@ -10,7 +10,7 @@ import {
 export const patchMovieService = async (
   id: number,
   data: TMovieEditRequest
-): Promise<TMovie | any> => {
+): Promise<TMovie> => {
   movieEditRequestSchema.parse(data);
 
   const repository: Repository<Movie> = AppDataSource.getRepository(Movie);
