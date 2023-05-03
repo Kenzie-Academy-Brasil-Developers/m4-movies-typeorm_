@@ -3,6 +3,7 @@ import { Repository } from 'typeorm';
 import { Movie } from '../entities';
 import { AppDataSource } from '../data-source';
 import { AppError } from '../error';
+import { movieEditRequestSchema } from '../schemas/movies.schemas';
 
 export const verifyNameExist = async (
   req: Request,
@@ -10,6 +11,8 @@ export const verifyNameExist = async (
   next: NextFunction
 ): Promise<Response | void> => {
   const { body } = req;
+
+  movieEditRequestSchema.parse(body);
 
   const repository: Repository<Movie> = AppDataSource.getRepository(Movie);
 

@@ -15,8 +15,8 @@ export const getMoviesServices = async (
   let data: Movie[] | undefined;
   const count: number = (await repository.find()).length;
 
-  const sortOptions = ['price', 'duration'];
-  const orderOptions = ['asc', 'desc'];
+  const sortOptions: string[] = ['price', 'duration'];
+  const orderOptions: string[] = ['asc', 'desc'];
 
   if (!perPage || perPage % 1 !== 0 || perPage > 5 || perPage <= 0) perPage = 5;
   if (!page || page % 1 !== 0 || page <= 0) page = 1;

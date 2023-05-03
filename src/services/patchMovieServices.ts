@@ -7,7 +7,7 @@ import {
   movieSchemas,
 } from '../schemas/movies.schemas';
 
-export const patchMovieService = async (
+export const patchMovieServices = async (
   id: number,
   data: TMovieEditRequest
 ): Promise<TMovie> => {
